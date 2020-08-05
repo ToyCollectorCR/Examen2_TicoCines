@@ -1,5 +1,6 @@
 <?php 
     require_once './Vistas/include/header.php';
+    //require_once './Controladores/peliculaController.php';
     require_once './LogicaNegocio/PeliculasServicios.php';
    
    
@@ -19,9 +20,9 @@
         <center>
             <nav>
                 <ul>
-                    <li><a href="Vistas/registrarPelicula.php">Registrar Película</a></li>
-                    <li><a href="Vistas/editarPelicula.php?id=<?=$pelicula->getId();?>">Editar</a></li>
-                    <li><a href="Controladores/peliculaController.php?accion=eliminar&id=<?=$pelicula->getId();?>">Borrar</a></li>
+                    <li><a href="Vistas/registrarPelicula.php">Registrar Películas</a></li>
+                    <li><a href="Vistas/editarPelicula.php?id=<?=$pelicula->getId();?>">Editar Peliculas</a></li>
+                    <li><a href="Vistas/eliminarPelicula.php?id=<?=$pelicula->getId();?>">Borrar Peliculas</a></li>
                     <li><a href="Vistas/cerrarSesion.php">Salir</a></li>
                 </ul>
             </nav> 
