@@ -24,7 +24,8 @@
   header("location:../index.php");
   
   function guardarPelicula(){
-      $afiche = $_POST['afiche'];
+      
+      $afiche = file_get_contents($_FILES['afiche']['tmp_name']);
       $codigo = $_POST['codigo'];
       $titulo = $_POST['titulo'];
       $director = $_POST['director'];
@@ -44,14 +45,14 @@
 
   function actualizarPelicula(){
       $id = $_POST['id'];
-      $afiche = $_POST['afiche'];
+      $afiche = file_get_contents($_FILES['afiche']['tmp_name']);
       $codigo = $_POST['codigo'];
       $titulo = $_POST['titulo'];
       $director = $_POST['director'];
       $sinopsis = $_POST['sinopsis'];
       $puntuacion = $_POST['puntuacion'];
       
-      $servicios = new LibroServicios();
+      $servicios = new PeliculasServicios();
       $servicios->modificarPelicula($id,$afiche,$codigo,$titulo,$director,$sinopsis,$puntuacion);
   }  
 

@@ -19,8 +19,7 @@
                         <th>Director</th>
                         <th>Sinopsis</th>
                         <th>Puntuación</th>
-                        <th></th>
-                        <th></th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -29,14 +28,13 @@
                         foreach ($peliculas as $posicion => $pelicula):  ?>
                             <tr>
                                 <td><?=$pelicula->getId();?></td>
-                                <td><img height="150px" src="data:image/jpg;base64,<?php echo base64_encode($row['afiche'])?>"/> </td>
+                                <td><img height="150px" src="data:image/jpg;base64,<?php echo base64_encode($pelicula->getAfiche());?>"/></td>
                                 <td><?=$pelicula->getCodigo();?></td>
                                 <td><?=$pelicula->getTitulo();?></td>
                                 <td><?=$pelicula->getDirector();?></td>
                                 <td><?=$pelicula->getSinopsis();?></td>
                                 <td><?=$pelicula->getPuntuacion();?></td>
-                                <td><a href="Vistas/editarLibro.php?id=<?=$libro->getId();?>">Editar</a></td>
-                                <td><a href="Controladores/libroController.php?accion=eliminar&id=<?=$libro->getId();?>">Borrar</a></td>
+                                
                             </tr>
                 <?php
                        endforeach;

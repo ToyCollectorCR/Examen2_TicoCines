@@ -3,7 +3,7 @@
     <section>
         <br>
         <h1>REGISTRAR PELICULA</h1>
-        <form method="post" action="../Controladores/peliculaController.php">		
+        <form method="post" action="../Controladores/peliculaController.php" enctype="multipart/form-data">		
             <input type="file" required="" name="afiche"/><br><br>
             <input type="text" placeholder="Código" name="codigo" required>
             <input type="text" placeholder="Titulo"  name="titulo" required>

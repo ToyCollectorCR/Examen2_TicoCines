@@ -10,11 +10,11 @@ class PeliculasServicios {
         $this->db = new ConexionBD();
     }
     
-    function agregarPelicula($codigo, $titulo, $director, $sinopsis, $puntuacion){
+    function agregarPelicula($afiche, $codigo, $titulo, $director, $sinopsis, $puntuacion){
         $this->db->getConeccion();
-        $afiche = addslashes(file_get_contents($_FILES['afiche']['tmp_name']));
+        
         $sql = "INSERT INTO peliculas(afiche,codigo,titulo,director,sinopsis,puntuacion) VALUES(?,?,?,?,?,?)";
-        $paramType = 'sss';
+        $paramType = 'sssssi';
         $paramValue = array($afiche, $codigo, $titulo, $director, $sinopsis, $puntuacion);
         
         $this->db->executeQuery($sql, $paramType, $paramValue);
@@ -22,11 +22,11 @@ class PeliculasServicios {
         
     }
     
-    function modificarPelicula($id,$codigo, $titulo, $director, $sinopsis, $puntuacion) {
+    function modificarPelicula($id,$afiche,$codigo, $titulo, $director, $sinopsis, $puntuacion) {
         $this->db->getConeccion();
-        $afiche = addslashes(file_get_contents($_FILES['afiche']['tmp_name']));
+        
         $sql = "UPDATE peliculas SET AFICHE = ?,CODIGO = ?,TITULO = ?,DIRECTOR = ?,SINOPSIS = ?,PUNTUACION = ? WHERE ID = ?";
-        $paramType = "sssi";
+        $paramType = "sssssii";
         $paramValue = array($afiche, $codigo, $titulo, $director, $sinopsis, $puntuacion, $id);
         $this->db->executeQuery($sql, $paramType, $paramValue);
         $this->db->cerrarConeccion();
