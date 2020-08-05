@@ -12,7 +12,7 @@ class adminServicios {
     }
 
      //Buscar usuario por correo y password
-    function buscarUsuario($correo,$password){
+    function buscarAdmin($correo,$password){
         $this->db->getConeccion();
         $sql = "SELECT * FROM admin WHERE CORREO='$correo' AND PASSWORD='$password'";
         $registros = $this->db->executeQueryReturnData($sql);        
