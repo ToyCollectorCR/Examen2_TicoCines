@@ -2,19 +2,32 @@
 
 class generos {
     
-    private $genero;
+    private $codigogenero;
+    private $nombregenero;
     
-    function __construct($genero) {
-        $this->genero = $genero;
+    
+    function __construct($codigogenero, $nombregenero) {
+        $this->codigogenero = $codigogenero;
+        $this->nombregenero = $nombregenero;
+    }
+    
+    function getCodigogenero() {
+        return $this->codigogenero;
     }
 
-    function getGenero() {
-        return $this->genero;
+    function getNombregenero() {
+        return $this->nombregenero;
     }
 
-    function setGenero($genero) {
-        $this->genero = $genero;
+    function setCodigogenero($codigogenero) {
+        $this->codigogenero = $codigogenero;
     }
+
+    function setNombregenero($nombregenero) {
+        $this->nombregenero = $nombregenero;
+    }
+
+
 
 
     

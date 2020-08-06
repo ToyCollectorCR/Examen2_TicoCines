@@ -19,6 +19,7 @@
                         <th>Director</th>
                         <th>Sinopsis</th>
                         <th>Puntuación</th>
+                        <th>Genero</th>
 
                     </tr>
                 </thead>
@@ -34,6 +35,7 @@
                                 <td><?=$pelicula->getDirector();?></td>
                                 <td><?=$pelicula->getSinopsis();?></td>
                                 <td><?=$pelicula->getPuntuacion();?></td>
+                                <td><?=$pelicula->getGenero();?></td>
                                 
                             </tr>
                 <?php

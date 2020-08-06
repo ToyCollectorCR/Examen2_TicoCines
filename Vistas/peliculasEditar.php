@@ -1,7 +1,6 @@
 <?php 
-    require dirname(__DIR__).'/Vistas/include/header.php';
-    //require_once './Controladores/peliculaController.php';
-    require dirname(__DIR__).'/LogicaNegocio/PeliculasServicios.php';
+    //require_once '/Vistas/include/header.php';
+    require_once '../LogicaNegocio/PeliculasServicios.php';
     $servicios = new PeliculasServicios();
     $peliculas = $servicios->obtenerPelicula();     
 ?>
@@ -9,7 +8,7 @@
 
         <section>
             <br>
-            <h1>Eliminar Peliculas</h1>
+            <h1>Lista de Peliculas</h1>
             <table id="t1" border="1">
                 <thead>
                     <tr>
@@ -20,7 +19,7 @@
                         <th>Director</th>
                         <th>Sinopsis</th>
                         <th>Puntuación</th>
-                        <th>Genero</th>
+                        <th>Género</th>
                         <th></th>
 
                     </tr>
@@ -38,7 +37,7 @@
                                 <td><?=$pelicula->getSinopsis();?></td>
                                 <td><?=$pelicula->getPuntuacion();?></td>
                                 <td><?=$pelicula->getGenero();?></td>
-                                <td><a href="../Controladores/peliculaController.php?accion=eliminar&id=<?=$pelicula->getId();?>">Eliminar</a></td>
+                                <td><a href="../Vistas/editarPelicula.php?id=<?=$pelicula->getId();?>">Editar</a></td>
                                 
                             </tr>
                 <?php

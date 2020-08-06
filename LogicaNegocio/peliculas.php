@@ -9,8 +9,9 @@ class peliculas {
     private $director;
     private $sinopsis;
     private $puntuacion;
+    private $genero;
     
-    function __construct($id, $afiche, $codigo, $titulo, $director, $sinopsis, $puntuacion) {
+    function __construct($id, $afiche, $codigo, $titulo, $director, $sinopsis, $puntuacion, $genero) {
         $this->id = $id;
         $this->afiche = $afiche;
         $this->codigo = $codigo;
@@ -18,6 +19,7 @@ class peliculas {
         $this->director = $director;
         $this->sinopsis = $sinopsis;
         $this->puntuacion = $puntuacion;
+        $this->genero = $genero;
     }
 
     function getId() {
@@ -47,6 +49,10 @@ class peliculas {
     function getPuntuacion() {
         return $this->puntuacion;
     }
+    
+        function getGenero() {
+        return $this->genero;
+    }
 
     function setId($id) {
         $this->id = $id;
@@ -74,6 +80,10 @@ class peliculas {
 
     function setPuntuacion($puntuacion) {
         $this->puntuacion = $puntuacion;
+    }
+    
+    function setGenero() {
+        return $this->genero;
     }
 
 

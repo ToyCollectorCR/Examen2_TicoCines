@@ -1,4 +1,13 @@
-<?php require 'include/header.php';?>
+<?php 
+require 'include/header.php';
+//require '../LogicaNegocio/PeliculasServicios.php';
+require '../LogicaNegocio/GeneroServicios.php';
+//require '../LogicaNegocio/generos.php';
+
+    $servicios = new GeneroServicios();
+    $generospel = $servicios->obtenerGenero();    
+    
+?>
 <body>
     <section>
         <br>
@@ -10,6 +19,24 @@
             <input type="text" placeholder="Director"  name="director" required>
             <input type="text" placeholder="Sinopsis"  name="sinopsis" required>
             <input type="number" placeholder="Puntuacion"  name="puntuacion" required>
+            <label>Genero</label>
+            <select name="genero">
+                <?php
+                    if(count($generospel) >0):  
+                        foreach ($generospel as $posicion => $genero):  ?>
+                
+                <option value="<?=$genero->getNombregenero();?>">
+                    
+                    <?=$genero->getNombregenero();?>
+                    
+                </option>
+                
+                
+                <?php
+                    endforeach;
+                        endif;
+                ?>
+            </select> 
             <input type="submit" name="accion" value="registrar">
         </form>
     </section>

@@ -31,9 +31,10 @@
       $director = $_POST['director'];
       $sinopsis = $_POST['sinopsis'];
       $puntuacion = $_POST['puntuacion'];
-       
+      $genero = $_POST['genero'];
+      
       $servicios = new PeliculasServicios();
-      $servicios->agregarPelicula($afiche,$codigo,$titulo,$director,$sinopsis,$puntuacion);
+      $servicios->agregarPelicula($afiche,$codigo,$titulo,$director,$sinopsis,$puntuacion,$genero);
   }
   
   function eliminarPelicula(){
@@ -51,9 +52,10 @@
       $director = $_POST['director'];
       $sinopsis = $_POST['sinopsis'];
       $puntuacion = $_POST['puntuacion'];
+       $genero = $_POST['genero'];
       
       $servicios = new PeliculasServicios();
-      $servicios->modificarPelicula($id,$afiche,$codigo,$titulo,$director,$sinopsis,$puntuacion);
+      $servicios->modificarPelicula($id,$afiche,$codigo,$titulo,$director,$sinopsis,$puntuacion,$genero);
   }  
 
 ?>

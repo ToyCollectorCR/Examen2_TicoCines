@@ -10,24 +10,24 @@ class PeliculasServicios {
         $this->db = new ConexionBD();
     }
     
-    function agregarPelicula($afiche, $codigo, $titulo, $director, $sinopsis, $puntuacion){
+    function agregarPelicula($afiche, $codigo, $titulo, $director, $sinopsis, $puntuacion,$genero){
         $this->db->getConeccion();
         
-        $sql = "INSERT INTO peliculas(afiche,codigo,titulo,director,sinopsis,puntuacion) VALUES(?,?,?,?,?,?)";
-        $paramType = 'sssssi';
-        $paramValue = array($afiche, $codigo, $titulo, $director, $sinopsis, $puntuacion);
+        $sql = "INSERT INTO peliculas(afiche,codigo,titulo,director,sinopsis,puntuacion,genero) VALUES(?,?,?,?,?,?,?)";
+        $paramType = 'sssssis';
+        $paramValue = array($afiche, $codigo, $titulo, $director, $sinopsis, $puntuacion,$genero);
         
         $this->db->executeQuery($sql, $paramType, $paramValue);
         $this->db->cerrarConeccion();
         
     }
     
-    function modificarPelicula($id,$afiche,$codigo, $titulo, $director, $sinopsis, $puntuacion) {
+    function modificarPelicula($id,$afiche,$codigo, $titulo, $director, $sinopsis, $puntuacion,$genero) {
         $this->db->getConeccion();
         
-        $sql = "UPDATE peliculas SET AFICHE = ?,CODIGO = ?,TITULO = ?,DIRECTOR = ?,SINOPSIS = ?,PUNTUACION = ? WHERE ID = ?";
-        $paramType = "sssssii";
-        $paramValue = array($afiche, $codigo, $titulo, $director, $sinopsis, $puntuacion, $id);
+        $sql = "UPDATE peliculas SET AFICHE = ?,CODIGO = ?,TITULO = ?,DIRECTOR = ?,SINOPSIS = ?,PUNTUACION = ?,GENERO = ? WHERE ID = ?";
+        $paramType = "sssssisi";
+        $paramValue = array($afiche, $codigo, $titulo, $director, $sinopsis, $puntuacion,$genero, $id);
         $this->db->executeQuery($sql, $paramType, $paramValue);
         $this->db->cerrarConeccion();
     }
@@ -48,7 +48,7 @@ class PeliculasServicios {
         $peliculas =array();
         
         foreach ($registros as $posicion => $row){
-            $pelicula = new peliculas($row['id'],$row['afiche'],$row['codigo'],$row['titulo'],$row['director'],$row['sinopsis'],$row['puntuacion']);
+            $pelicula = new peliculas($row['id'],$row['afiche'],$row['codigo'],$row['titulo'],$row['director'],$row['sinopsis'],$row['puntuacion'],$row['genero']);
             array_push($peliculas, $pelicula);
         }
         $this->db->cerrarConeccion();        
@@ -61,9 +61,11 @@ class PeliculasServicios {
         $registros = $this->db->executeQueryReturnData($sql);
         $this->db->cerrarConeccion();
         
-        $pelicula = new peliculas($registros[0]['id'],$registros[0]['afiche'],$registros[0]['codigo'],$registros[0]['titulo'],$registros[0]['director'],$registros[0]['sinopsis'],$registros[0]['puntuacion']);
+        $pelicula = new peliculas($registros[0]['id'],$registros[0]['afiche'],$registros[0]['codigo'],$registros[0]['titulo'],$registros[0]['director'],$registros[0]['sinopsis'],$registros[0]['puntuacion'],$registros[0]['genero']);
+       
         return $pelicula;
     }
+    
     
     
     
