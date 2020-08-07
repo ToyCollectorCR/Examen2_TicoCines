@@ -15,15 +15,22 @@ class GeneroServicios {
         
         $sql = "INSERT INTO generos(codigogenero,nombregenero) VALUES(?,?)";
         $paramType = 'ss';
-        $paramValue = array('AC', 'Acción');
+        $paramValue = array($codigogenero, $nombregenero);
         
         $this->db->executeQuery($sql, $paramType, $paramValue);
         $this->db->cerrarConeccion();
-    
         
     }
+    
+        function modificarGenero($id,$codigogenero,$nombregenero) {
+        $this->db->getConeccion();
         
-        
+        $sql = "UPDATE generos SET codigogenero = ?, nombregenero = ? WHERE ID = ?";
+        $paramType = "ss";
+        $paramValue = array($codigogenero,$nombregenero, $id);
+        $this->db->executeQuery($sql, $paramType, $paramValue);
+        $this->db->cerrarConeccion();
+    }
     
     function obtenerGenero() {
         $this->db->getConeccion();        
@@ -37,6 +44,17 @@ class GeneroServicios {
         }
         $this->db->cerrarConeccion();        
         return $generospel;
-    } 
+    }
+    
+     function obtenerGeneroById($id) {
+        $this->db->getConeccion();
+        $sql = "SELECT * FROM generos WHERE ID = $id";
+        $registros = $this->db->executeQueryReturnData($sql);
+        $this->db->cerrarConeccion();
+        
+        $genero = new generos($registros[0]['id'],$registros[0]['codigogenero'],$registros[0]['nombregenero']);
+       
+        return $genero;
+    }
     
 }

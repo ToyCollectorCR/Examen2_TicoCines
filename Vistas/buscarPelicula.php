@@ -2,13 +2,29 @@
     //require_once '/Vistas/include/header.php';
     require_once '../LogicaNegocio/PeliculasServicios.php';
     $servicios = new PeliculasServicios();
-    $peliculas = $servicios->obtenerPelicula();     
+    $peliculas = $servicios->buscaPelicula();     
 ?>
     <body>
 
         <section>
+            <?php 
+            $busqueda = strtolower($_REQUEST['busqueda']);
+            if(empty($busqueda))
+            {
+                header("location: listaPeliculas.php");
+            }
+            
+            ?>
+            
+            
             <br>
-            <h1>Editar Peliculas</h1>
+            <h1>Lista de Peliculas</h1>
+            
+            <form action="buscarPelicula.php" method="get">
+                <input type="text" name="busqueda" id="busqueda" placeholder="Buscar" value="<?php echo $busqueda;?>">
+                <input type="submit" name="buscar" value="Buscar">
+            </form>
+            
             <table id="t1" border="1">
                 <thead>
                     <tr>
@@ -19,8 +35,7 @@
                         <th>Director</th>
                         <th>Sinopsis</th>
                         <th>Puntuación</th>
-                        <th>Género</th>
-                        <th></th>
+                        <th>Genero</th>
 
                     </tr>
                 </thead>
@@ -37,7 +52,6 @@
                                 <td><?=$pelicula->getSinopsis();?></td>
                                 <td><?=$pelicula->getPuntuacion();?></td>
                                 <td><?=$pelicula->getGenero();?></td>
-                                <td><a href="../Vistas/editarPelicula.php?id=<?=$pelicula->getId();?>">Editar</a></td>
                                 
                             </tr>
                 <?php

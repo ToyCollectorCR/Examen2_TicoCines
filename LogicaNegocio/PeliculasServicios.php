@@ -66,6 +66,20 @@ class PeliculasServicios {
         return $pelicula;
     }
     
+     function buscaPelicula() {
+        $this->db->getConeccion();        
+        $sql = "SELECT * FROM peliculas WHERE titulo LIKE '%$busqueda%'";
+        $registros = $this->db->executeQueryReturnData($sql);
+        $peliculas =array();
+        
+        foreach ($registros as $posicion => $row){
+            $pelicula = new peliculas($row['id'],$row['afiche'],$row['codigo'],$row['titulo'],$row['director'],$row['sinopsis'],$row['puntuacion'],$row['genero']);
+            array_push($peliculas, $pelicula);
+        }
+        $this->db->cerrarConeccion();        
+        return $peliculas;
+    } 
+    
     
     
     

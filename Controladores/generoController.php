@@ -13,6 +13,8 @@
     }
   }
   
+  header("location:../index.php");
+  
   function guardarGenero(){
       
       $codigogenero = $_POST['codigogenero']; 
@@ -22,6 +24,14 @@
       $servicios->agregarGenero($codigogenero,$nombregenero);
   }
   
-  
+   function actualizarGenero(){
+      $id = $_POST['id'];
+      $codigogenero = $_POST['codigogenero'];
+      $nombregenero = $_POST['nombregenero'];
+      
+      
+      $servicios = new GeneroServicios();
+      $servicios->modificarGenero($id,$codigogenero,$nombregenero);
+   }
   
   ?>

@@ -9,6 +9,12 @@
         <section>
             <br>
             <h1>Lista de Peliculas</h1>
+            
+            <form action="buscarPelicula.php" method="get">
+                <input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
+                <input type="submit" value="Buscar">
+            </form>
+            
             <table id="t1" border="1">
                 <thead>
                     <tr>

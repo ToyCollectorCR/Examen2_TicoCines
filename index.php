@@ -31,8 +31,8 @@
             <nav>
                 <ol>
                     <li><a href="Vistas/registrarGenero.php">Registrar Género</a></li>
-                    <li><a href="Vistas/peliculasEditar.php">Editar Género</a></li>
-                    <li><a href="Vistas/eliminarPelicula.php?">Listar Género</a></li>
+                    <li><a href="Vistas/generosEditar.php">Editar Género</a></li>
+                    <li><a href="Vistas/listaGeneros.php?">Listar Género</a></li>
                 </ol>
             </nav>
             
