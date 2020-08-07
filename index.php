@@ -15,18 +15,32 @@
     <body>
         
         <center>
+            
+            <h3>MANTENIMIENTO PELICULAS</h3>
+            
             <nav>
-                <ul>
+                <ol>
                     <li><a href="Vistas/registrarPelicula.php">Registrar Películas</a></li>
                     <li><a href="Vistas/peliculasEditar.php">Editar Peliculas</a></li>
                     <li><a href="Vistas/eliminarPelicula.php?">Borrar Peliculas</a></li>
-                    
-                    
-                    
-                    <li><a href="Vistas/cerrarSesion.php">Salir</a></li>
-                    
+                </ol>
+            </nav>
+            
+            <h3>MANTENIMIENTO GENEROS</h3>
+            
+            <nav>
+                <ol>
+                    <li><a href="Vistas/registrarGenero.php">Registrar Género</a></li>
+                    <li><a href="Vistas/peliculasEditar.php">Editar Género</a></li>
+                    <li><a href="Vistas/eliminarPelicula.php?">Listar Género</a></li>
+                </ol>
+            </nav>
+            
+            <nav>
+                <ul>
+                    <li><a href="Vistas/cerrarSesion.php">Salir</a></li>                    
                 </ul>
-            </nav> 
+            </nav>
         </center> 
 
     </body>
