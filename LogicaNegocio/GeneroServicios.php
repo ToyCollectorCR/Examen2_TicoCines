@@ -1,5 +1,5 @@
 <?php
-//require dirname(__DIR__).'/BaseDatos/ConexionBD.php';
+require dirname(__DIR__).'/BaseDatos/ConexionBD.php';
 require dirname(__DIR__).'/LogicaNegocio/generos.php';
 
 class GeneroServicios {

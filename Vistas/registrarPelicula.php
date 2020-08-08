@@ -1,6 +1,6 @@
 <?php 
 require 'include/header.php';
-require '../LogicaNegocio/PeliculasServicios.php';
+//require '../LogicaNegocio/PeliculasServicios.php';
 require '../LogicaNegocio/GeneroServicios.php';
 //require '../LogicaNegocio/generos.php';
 

@@ -1,7 +1,7 @@
 <?php 
   require 'include/header.php';
   require dirname(__DIR__).'/LogicaNegocio/PeliculasServicios.php';
-  require dirname(__DIR__).'/LogicaNegocio/GeneroServicios.php';
+  //require dirname(__DIR__).'/LogicaNegocio/GeneroServicios.php';
   
   
   
@@ -10,8 +10,8 @@
       $servicios = new PeliculasServicios();
       $pelicula = $servicios->obtenerPeliculaById($id);
       
-      $servicios2 = new GeneroServicios();
-      $generospel = $servicios2->obtenerGenero(); 
+     //$servicios2 = new GeneroServicios();
+     // $generospel = $servicios2->obtenerGenero(); 
       
   
   }
@@ -47,7 +47,7 @@
                 <td><input type="text" placeholder="Titulo"  name="titulo" required value="<?=$pelicula->getTitulo();?>"> </td>       
                 <td><input type="text" placeholder="Director"  name="director" required value="<?=$pelicula->getDirector();?>"></td>
                 <td><input type="text" placeholder="Sinopsis"  name="sinopsis" required value="<?=$pelicula->getSinopsis();?>"></td>
-                <td><input type="number" placeholder="Puntuacion"  name="puntuacion" required value="<?=$pelicula->getPuntuacion();?>"></td>
+                <td><input type="number" readonly="" value="0" name="puntuacion" required></td>
                 <td>
                 <label>Genero</label>
                 <select name="genero">
