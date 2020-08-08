@@ -11,7 +11,7 @@
             <h1>Lista de Peliculas</h1>
             
             <form action="buscarPelicula.php" method="get">
-                <input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
+                <input type="text" name="busqueda" id="busqueda" required="" placeholder="Buscar">
                 <input type="submit" value="Buscar">
             </form>
             
@@ -26,6 +26,7 @@
                         <th>Sinopsis</th>
                         <th>Puntuación</th>
                         <th>Genero</th>
+                        <th>Votar</th>
 
                     </tr>
                 </thead>
@@ -42,7 +43,8 @@
                                 <td><?=$pelicula->getSinopsis();?></td>
                                 <td><?=$pelicula->getPuntuacion();?></td>
                                 <td><?=$pelicula->getGenero();?></td>
-                                
+                                <td><a href="../Vistas/vistaVotar.php?id=<?=$pelicula->getId();?> & titulo=<?=$pelicula->getTitulo();?>">Votar</a></td>
+                
                             </tr>
                 <?php
                        endforeach;

@@ -33,8 +33,8 @@
   
                 <tr>
                 <td><input type="text"  name="id" readonly="" value="<?=$genero->getId();?>"></td>       
-                <td><input type="text" placeholder="Código" name="codigogenero" required value="<?=$genero->getCodigogenero();?>"></td>       
-                <td><input type="text" placeholder="Titulo"  name="nombregenero" required value="<?=$genero->getNombregenero();?>"> </td>       
+                <td><input type="text" placeholder="Código" name="codigogenero" value="<?=$genero->getCodigogenero();?>"></td>       
+                <td><input type="text" placeholder="Nombre"  name="nombregenero" value="<?=$genero->getNombregenero();?>"> </td>       
                 <td><input type="submit" name="accion" value="actualizar"></td>
                 </tr>
 

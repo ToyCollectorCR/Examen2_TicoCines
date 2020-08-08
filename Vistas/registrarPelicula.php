@@ -1,6 +1,6 @@
 <?php 
 require 'include/header.php';
-//require '../LogicaNegocio/PeliculasServicios.php';
+require '../LogicaNegocio/PeliculasServicios.php';
 require '../LogicaNegocio/GeneroServicios.php';
 //require '../LogicaNegocio/generos.php';
 
@@ -18,7 +18,7 @@ require '../LogicaNegocio/GeneroServicios.php';
             <input type="text" placeholder="Titulo"  name="titulo" required>
             <input type="text" placeholder="Director"  name="director" required>
             <input type="text" placeholder="Sinopsis"  name="sinopsis" required>
-            <input type="number" placeholder="Puntuacion"  name="puntuacion" required>
+            <input type="number" readonly="" value="0" name="puntuacion" required>
             <label>Genero</label>
             <select name="genero">
                 <?php

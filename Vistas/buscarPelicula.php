@@ -2,26 +2,19 @@
     //require_once '/Vistas/include/header.php';
     require_once '../LogicaNegocio/PeliculasServicios.php';
     $servicios = new PeliculasServicios();
-    $peliculas = $servicios->buscaPelicula();     
+    $peliculas = $servicios->buscaPelicula($_GET['busqueda']);     
 ?>
     <body>
 
         <section>
-            <?php 
-            $busqueda = strtolower($_REQUEST['busqueda']);
-            if(empty($busqueda))
-            {
-                header("location: listaPeliculas.php");
-            }
-            
-            ?>
+
             
             
             <br>
             <h1>Lista de Peliculas</h1>
             
             <form action="buscarPelicula.php" method="get">
-                <input type="text" name="busqueda" id="busqueda" placeholder="Buscar" value="<?php echo $busqueda;?>">
+                <input type="text" name="busqueda" id="busqueda" placeholder="Buscar" value="<?php echo $_GET['busqueda'];?>">
                 <input type="submit" name="buscar" value="Buscar">
             </form>
             

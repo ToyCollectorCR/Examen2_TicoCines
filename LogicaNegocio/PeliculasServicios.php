@@ -10,24 +10,24 @@ class PeliculasServicios {
         $this->db = new ConexionBD();
     }
     
-    function agregarPelicula($afiche, $codigo, $titulo, $director, $sinopsis, $puntuacion,$genero){
+    function agregarPelicula($registro){
         $this->db->getConeccion();
         
         $sql = "INSERT INTO peliculas(afiche,codigo,titulo,director,sinopsis,puntuacion,genero) VALUES(?,?,?,?,?,?,?)";
         $paramType = 'sssssis';
-        $paramValue = array($afiche, $codigo, $titulo, $director, $sinopsis, $puntuacion,$genero);
+        $paramValue = array($registro->getAfiche(),$registro->getCodigo(), $registro->getTitulo(),$registro->getDirector(),$registro->getSinopsis(),$registro->getPuntuacion(),$registro->getGenero());
         
         $this->db->executeQuery($sql, $paramType, $paramValue);
         $this->db->cerrarConeccion();
         
     }
     
-    function modificarPelicula($id,$afiche,$codigo, $titulo, $director, $sinopsis, $puntuacion,$genero) {
+    function modificarPelicula($modificar) {
         $this->db->getConeccion();
         
         $sql = "UPDATE peliculas SET AFICHE = ?,CODIGO = ?,TITULO = ?,DIRECTOR = ?,SINOPSIS = ?,PUNTUACION = ?,GENERO = ? WHERE ID = ?";
         $paramType = "sssssisi";
-        $paramValue = array($afiche, $codigo, $titulo, $director, $sinopsis, $puntuacion,$genero, $id);
+        $paramValue = array($modificar->getAfiche(),$modificar->getCodigo(), $modificar->getTitulo(),$modificar->getDirector(),$modificar->getSinopsis(),$modificar->getPuntuacion(),$modificar->getGenero(),$modificar->getId());
         $this->db->executeQuery($sql, $paramType, $paramValue);
         $this->db->cerrarConeccion();
     }
@@ -66,7 +66,7 @@ class PeliculasServicios {
         return $pelicula;
     }
     
-     function buscaPelicula() {
+     function buscaPelicula($busqueda) {
         $this->db->getConeccion();        
         $sql = "SELECT * FROM peliculas WHERE titulo LIKE '%$busqueda%'";
         $registros = $this->db->executeQueryReturnData($sql);

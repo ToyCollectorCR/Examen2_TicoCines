@@ -10,6 +10,9 @@
         case 'actualizar':
             actualizarPelicula();
             break;  
+                case 'votar':
+            votacion();
+            break;
     }
   }
 
@@ -18,12 +21,14 @@
     switch ($_GET['accion']) {
         case 'eliminar':
             eliminarPelicula();            
-            break;          
+            break; 
+
     }
   }  
   header("location:../index.php");
   
   function guardarPelicula(){
+      
       
       $afiche = file_get_contents($_FILES['afiche']['tmp_name']);
       $codigo = $_POST['codigo'];
@@ -33,8 +38,10 @@
       $puntuacion = $_POST['puntuacion'];
       $genero = $_POST['genero'];
       
+      $registro = new peliculas(0,$afiche,$codigo,$titulo,$director,$sinopsis,$puntuacion,$genero);
+      
       $servicios = new PeliculasServicios();
-      $servicios->agregarPelicula($afiche,$codigo,$titulo,$director,$sinopsis,$puntuacion,$genero);
+      $servicios->agregarPelicula($registro);
   }
   
   function eliminarPelicula(){
@@ -52,10 +59,25 @@
       $director = $_POST['director'];
       $sinopsis = $_POST['sinopsis'];
       $puntuacion = $_POST['puntuacion'];
-       $genero = $_POST['genero'];
+      $genero = $_POST['genero'];
+      
+      $modificar = new peliculas($id,$afiche,$codigo,$titulo,$director,$sinopsis,$puntuacion,$genero);
+       
+      $servicios = new PeliculasServicios();
+      $servicios->modificarPelicula($modificar);
+  }  
+  
+  function votacion(){
+
+      $id = $_POST['codigo'];
+      $voto = $_POST['votar'];
       
       $servicios = new PeliculasServicios();
-      $servicios->modificarPelicula($id,$afiche,$codigo,$titulo,$director,$sinopsis,$puntuacion,$genero);
-  }  
+      $pelicula = $servicios->obtenerPeliculaById($id);
+      $pelicula->setPuntuacion($pelicula->getPuntuacion()+ $voto);
+      $servicios->modificarPelicula($pelicula);
+      
+  }
+  
 
 ?>

@@ -1,6 +1,7 @@
 <?php 
   require 'include/header.php';
   require dirname(__DIR__).'/LogicaNegocio/PeliculasServicios.php';
+  require dirname(__DIR__).'/LogicaNegocio/GeneroServicios.php';
   
   
   
@@ -8,6 +9,9 @@
       $id  = $_GET['id'];
       $servicios = new PeliculasServicios();
       $pelicula = $servicios->obtenerPeliculaById($id);
+      
+      $servicios2 = new GeneroServicios();
+      $generospel = $servicios2->obtenerGenero(); 
       
   
   }
@@ -48,6 +52,7 @@
                 <label>Genero</label>
                 <select name="genero">
                     <?php
+                                      
                         if(count($generospel) >0):  
                             foreach ($generospel as $posicion => $genero):  ?>
                 

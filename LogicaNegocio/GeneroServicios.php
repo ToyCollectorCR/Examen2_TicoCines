@@ -1,5 +1,5 @@
 <?php
-require dirname(__DIR__).'/BaseDatos/ConexionBD.php';
+//require dirname(__DIR__).'/BaseDatos/ConexionBD.php';
 require dirname(__DIR__).'/LogicaNegocio/generos.php';
 
 class GeneroServicios {
@@ -26,7 +26,7 @@ class GeneroServicios {
         $this->db->getConeccion();
         
         $sql = "UPDATE generos SET codigogenero = ?, nombregenero = ? WHERE ID = ?";
-        $paramType = "ss";
+        $paramType = "ssi";
         $paramValue = array($codigogenero,$nombregenero, $id);
         $this->db->executeQuery($sql, $paramType, $paramValue);
         $this->db->cerrarConeccion();

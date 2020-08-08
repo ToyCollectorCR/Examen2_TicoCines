@@ -24,7 +24,7 @@ class ConexionBD {
     
     public function getConeccion(){        
         if($this->coneccion == null){
-            abrirConeccion();
+            $this -> abrirConeccion();
         }
       return $this->coneccion;
     }
