@@ -1,7 +1,7 @@
 <?php 
   require 'include/header.php';
   require dirname(__DIR__).'/LogicaNegocio/PeliculasServicios.php';
-  //require dirname(__DIR__).'/LogicaNegocio/GeneroServicios.php';
+  require dirname(__DIR__).'/LogicaNegocio/GeneroServicios.php';
   
   
   
@@ -10,8 +10,8 @@
       $servicios = new PeliculasServicios();
       $pelicula = $servicios->obtenerPeliculaById($id);
       
-     //$servicios2 = new GeneroServicios();
-     // $generospel = $servicios2->obtenerGenero(); 
+     $servicios2 = new GeneroServicios();
+     $generospel = $servicios2->obtenerGenero(); 
       
   
   }

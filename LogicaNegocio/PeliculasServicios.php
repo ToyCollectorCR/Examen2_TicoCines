@@ -68,7 +68,7 @@ class PeliculasServicios {
     
      function buscaPelicula($busqueda) {
         $this->db->getConeccion();        
-        $sql = "SELECT * FROM peliculas WHERE titulo LIKE '%$busqueda%'";
+        $sql = "SELECT id, afiche, codigo, titulo, director, sinopsis, puntuacion, genero  FROM peliculas WHERE Match(titulo) Against ('$busqueda')";
         $registros = $this->db->executeQueryReturnData($sql);
         $peliculas =array();
         

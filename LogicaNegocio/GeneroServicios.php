@@ -1,5 +1,5 @@
 <?php
-require dirname(__DIR__).'/BaseDatos/ConexionBD.php';
+require dirname(__DIR__).'/BaseDatos/ConexionBD2.php';
 require dirname(__DIR__).'/LogicaNegocio/generos.php';
 
 class GeneroServicios {
@@ -7,7 +7,7 @@ class GeneroServicios {
      private $db;
     
         function __construct() {
-        $this->db = new ConexionBD();
+        $this->db = new ConexionBD2();
     }
     
     function agregarGenero($codigogenero, $nombregenero){

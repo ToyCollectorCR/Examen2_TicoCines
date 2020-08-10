@@ -19,7 +19,7 @@ require '../LogicaNegocio/PeliculasServicios.php';
             <input type="submit" name="accion" value="votar">
           </form>  
         <h1>Recuerda que la Votacion es de 1 a 10....Gracias por tu Visita</h1>
-        
+         
     </section>
     </body>
 </html>
