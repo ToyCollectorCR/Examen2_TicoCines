@@ -16,23 +16,23 @@
         
         <center>
             
-            <h3>MANTENIMIENTO PELICULAS</h3>
+            <h3>MANTENIMIENTO DE PELICULAS</h3>
             
             <nav>
                 <ol>
-                    <li><a href="Vistas/registrarPelicula.php">Registrar Películas</a></li>
-                    <li><a href="Vistas/peliculasEditar.php">Editar Peliculas</a></li>
-                    <li><a href="Vistas/eliminarPelicula.php?">Borrar Peliculas</a></li>
+                    <li><a href="Vistas/registrarPelicula.php">Registrar Película</a></li>
+                    <li><a href="Vistas/peliculasEditar.php">Modificar Pelicula</a></li>
+                    <li><a href="Vistas/eliminarPelicula.php?">Eliminar Pelicula</a></li>
                 </ol>
             </nav>
             
-            <h3>MANTENIMIENTO GENEROS</h3>
+            <h3>MANTENIMIENTO DE GENERO (Terror, Romántica, Acción, etc.):</h3>
             
             <nav>
                 <ol>
                     <li><a href="Vistas/registrarGenero.php">Registrar Género</a></li>
-                    <li><a href="Vistas/generosEditar.php">Editar Género</a></li>
-                    <li><a href="Vistas/listaGeneros.php?">Listar Género</a></li>
+                    <li><a href="Vistas/generosEditar.php">Modificar Género</a></li>
+                    <li><a href="Vistas/listaGeneros.php?">Listar Géneros</a></li>
                 </ol>
             </nav>
             
